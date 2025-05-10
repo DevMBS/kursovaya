@@ -5,10 +5,16 @@ import Avatar from '@mui/joy/Avatar';
 import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
 import Link from '@mui/joy/Link';
 
-
-
-export default function HeaderSection({username}) {
+/**
+ * Компонент NavBar - навигационная панель приложения.
+ * Отображает логотип, название приложения и информацию о пользователе.
+ *
+ * @param {string} username - имя текущего пользователя, передается через пропсы
+ * @returns {JSX.Element} Возвращает JSX-разметку навигационной панели
+ */
+export default function NavBar({username}) {
     return (
+        // Основной контейнер навигационной панели
         <Box
             sx={{
                 display: 'flex',
@@ -26,6 +32,7 @@ export default function HeaderSection({username}) {
                 position: 'sticky',
             }}
         >
+            {/* Блок с логотипом и названием приложения */}
             <Box
                 sx={{
                     display: 'flex',
@@ -34,6 +41,7 @@ export default function HeaderSection({username}) {
                     gap: 1.5,
                 }}
             >
+                {/* Кнопка с иконкой логотипа */}
                 <IconButton size="sm" variant="soft">
                     <MapsHomeWorkIcon />
                 </IconButton>
@@ -41,17 +49,38 @@ export default function HeaderSection({username}) {
                     Посуточная аренда
                 </Typography>
             </Box>
+
+            {/* Блок с информацией о пользователе */}
             <Box sx={{ display: 'flex', flexDirection: 'row', gap: 3 }}>
                 <Box
-                    sx={{ gap: 1, alignItems: 'center', display: 'flex' }}
+                    sx={{
+                        gap: 1,
+                        alignItems: 'center',
+                        display: 'flex'
+                    }}
                 >
+                    {/* Аватар пользователя */}
                     <Avatar
                         variant="outlined"
                         size="sm"
                     />
-                    <Box sx={{ minWidth: 0, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    {/* Блок с именем пользователя и ссылкой */}
+                    <Box sx={{
+                        minWidth: 0,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between'
+                    }}>
+                        {/* Имя пользователя */}
                         <Typography level="title-sm">{username}</Typography>
-                        <Link level="body-xs" color={'neutral'} href={'/login'}>Войти в другой аккаунт</Link>
+                        {/* Ссылка для входа в другой аккаунт */}
+                        <Link
+                            level="body-xs"
+                            color={'neutral'}
+                            href={'/login'}
+                        >
+                            Войти в другой аккаунт
+                        </Link>
                     </Box>
                 </Box>
             </Box>
