@@ -18,6 +18,7 @@ import {CardsContext} from "./DashboardPanel";
 import {v4 as uuidv4} from "uuid";
 import {useSocket} from "./useSocket";
 import { useMediaQuery } from '@mui/material';
+import config from '../config';
 
 export default function CardInfoForm(props) {
     const {myCards, setMyCards} = useContext(CardsContext);
@@ -257,7 +258,7 @@ export default function CardInfoForm(props) {
                     justifyContent: 'center',
                     alignItems: 'center',
                     backgroundColor: '#dde2e6',
-                    backgroundImage: photoUrl ? (photoUrl[0] == 'b' ? `url(${photoUrl})` : `url(http://localhost:8000${photoUrl})`) : 'none',
+                    backgroundImage: photoUrl ? (photoUrl[0] == 'b' ? `url(${photoUrl})` : `url(${config.serverHost}${photoUrl})`) : 'none',
                     backgroundSize: 'cover',
                     borderRadius: '8px',
                     cursor: 'pointer'

@@ -13,6 +13,7 @@ import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 import PhoneRoundedIcon from '@mui/icons-material/PhoneRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
+import config from '../config';
 
 export default function RentalCard (props) {
     const { description, title, hasAccess = false, image, persons = 0, location, wifi=false, price, phone, onDelete, onEdit, id, username=null} = props;
@@ -71,7 +72,7 @@ export default function RentalCard (props) {
                         '--AspectRatio-maxHeight': { xs: '160px', sm: '9999px' },
                     }}
                 >
-                    <img alt="" src={`http://localhost:8000${image}`} />
+                    <img alt="" src={`${config.serverHost}${image}`} />
                     {hasAccess ? <Stack
                         direction="row"
                         spacing={2}
