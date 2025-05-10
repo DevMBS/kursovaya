@@ -50,6 +50,8 @@ export default function App() {
         if (localStorage.getItem('token')) {
             getProfile();
             handleRefresh();
+        } else {
+            window.location.href='/login';
         }
     }, []);
 
